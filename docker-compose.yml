@@ -1,0 +1,41 @@
+version:                  "3"
+services:
+    frontend:
+        build:
+          context:        ./frontend
+          dockerfile:     Dockerfile
+        volumes:
+          - ./frontend/app:/home/node/app
+          - /home/node/app/node_modules # to have node_modules in development
+        command:          npm start
+        working_dir:      /home/node/app
+        environment:
+          - NODE_ENV=development
+        ports:
+          - 3000:3000
+        container_name:   byandlarge_frontend
+    # backend:
+    #     build:
+    #       context:      ./backend
+    #       dockerfile:   Dockerfile
+    #     volumes:
+    #       - ./backend/app:/home/node/app
+    #       - /home/node/app/node_modules # to have node_modules in development
+    #     #command:        npm start
+    #     working_dir:    /home/node/app
+    #     environment:
+    #       - NODE_ENV=development
+    #     ports:
+    #       - 3050:3050
+    #     container_name: smartbrains_backend
+    #     depends_on:
+    #       - db
+    # db:
+    #     build:
+    #       context:      ./database
+    #       dockerfile:   Dockerfile
+    #     volumes:
+    #       - ./database/postgres_data:/var/lib/postgresql/data
+    #     ports:
+    #       - 5432:5432
+    #     container_name: smartbrains_db
