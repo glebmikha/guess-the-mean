@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import gagReducer from './gag_reducer'
+import dataReducer from './data_reducer';
+import curArrayReducer from './curArray_reducer';
+import answersReducer from './answer_reducers';
 
 const rootReducer = combineReducers({
-  initReducer: gagReducer
+  dataReducer: dataReducer,
+  curArray: curArrayReducer,
+  answers: answersReducer
 });
 
 export default rootReducer;

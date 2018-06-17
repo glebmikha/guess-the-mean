@@ -5,18 +5,17 @@ import _ from 'lodash';
 class ShowArray extends Component {
 
   renderArray() {
-    const array = this.props.initReducer[0].data;
+    const array = this.props.curArray;
+    console.log(array);
     return _.map(array , (element,index) => {
       return (
-        <td key={index}>{element}</td>
-      )
+      <td key={index}>{element}</td>
+    )
     })
 
   }
 
   render() {
-
-    console.log(this.props.initReducer);
 
     return (
       <div className="tablecontainer" align="center">
@@ -33,7 +32,7 @@ class ShowArray extends Component {
 }
 
 function mapStateToProps(state) {
-  return { initReducer: state.initReducer }
+  return { curArray: state.curArray }
 }
 
 export default connect(mapStateToProps)(ShowArray);

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { newArray, userAnswer } from '../../actions';
 
 class Slider extends Component {
 
@@ -13,7 +14,14 @@ class Slider extends Component {
   }
 
   onButtonClick(value) {
-    console.log(value);
+
+    if (this.props.curArray.length > 0) {
+
+      this.props.userAnswer(value,this.props.curArray);
+      this.props.newArray();
+    } else {
+      this.props.newArray();
+    }
   }
 
   // TODO 1. add keyboard control with shift to move faster
@@ -29,16 +37,25 @@ class Slider extends Component {
           min="0"
           max="100"
         />
-        <p>{this.state.value}</p>
+        <input
+          onChange={event => this.onInputChange(event.target.value)}
+          value={this.state.value}
+          type="text"
+          className="text-bar"
+        />
         <input
           onClick={() => this.onButtonClick(this.state.value)}
           className="searchButton"
           type="submit"
-          value="Submit"
+          value={this.props.curArray.length > 0 ? 'Submit' : 'Start'}
         />
       </div>
     )
   }
 }
 
-export default connect(null, null)(Slider);
+function mapStateToProps(state) {
+  return { curArray: state.curArray }
+}
+
+export default connect(mapStateToProps, { newArray, userAnswer })(Slider);
