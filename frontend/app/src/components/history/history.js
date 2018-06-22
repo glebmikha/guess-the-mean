@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import _ from 'lodash';
+import './history.css';
 
 class History extends Component {
 
@@ -12,8 +13,8 @@ class History extends Component {
         <tr>
           <td>{'['+arr.toString()+']'}</td>
           <td>{ans.true_mean}</td>
-          <td><h1>{ans.answer}</h1></td>
-          <td><h1>{ans.error}</h1></td>
+          <td>{ans.answer}</td>
+          <td>{ans.error}</td>
         </tr>
       )
     })

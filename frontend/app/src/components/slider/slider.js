@@ -16,7 +16,6 @@ class Slider extends Component {
   onButtonClick(value) {
 
     if (this.props.curArray.length > 0) {
-
       this.props.userAnswer(value,this.props.curArray);
       this.props.newArray();
     } else {

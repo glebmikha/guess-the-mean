@@ -18,7 +18,7 @@ class ShowArray extends Component {
   render() {
 
     return (
-      <div className="tablecontainer" align="center">
+      <div className="tablecontainer">
         <table>
           <tbody>
             <tr>
