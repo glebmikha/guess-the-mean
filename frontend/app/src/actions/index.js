@@ -2,13 +2,17 @@ export const NEXT = 'NEXT';
 export const NEW_ARRAY = 'NEW_ARRAY';
 export const USER_ANSWER = 'USER_ANSWER';
 
+let nextId = 0;
+
 export function newArray() {
   const array = Array.from({length: 5}, () => Math.floor(Math.random() * 40));
   return {
     type: NEW_ARRAY,
-    payload: array
+    payload: {array: array, id: nextId++}
   }
 }
+
+
 
 export function userAnswer(value, curArray) {
 

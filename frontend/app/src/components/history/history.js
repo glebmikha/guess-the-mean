@@ -9,9 +9,8 @@ class History extends Component {
 
     return _.zipWith(this.props.dataReducer.slice(1,), this.props.answers, (arr, ans) => {
       return (
-
-        <tr>
-          <td>{'['+arr.toString()+']'}</td>
+        <tr key={arr.id}>
+          <td>{'['+arr.array.toString()+']'}</td>
           <td>{ans.true_mean}</td>
           <td>{ans.answer}</td>
           <td>{ans.error}</td>
@@ -31,7 +30,7 @@ class History extends Component {
             <col className='error'/>
           </colgroup>
           <tbody>
-            {this.props.answers.length > 0 ? this.renderHistory() : ''}
+            {this.renderHistory()}
           </tbody>
         </table>
 
