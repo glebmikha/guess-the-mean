@@ -5,18 +5,18 @@ class Stats extends Component {
 
   getMeanError() {
 
-    return this.props.answers.reduce(
+    return ((this.props.answers.reduce(
       (p, c) => {
         return p + Math.abs(Number(c.error))
       }
-      ,0) / this.props.answers.length;
+      ,0) / this.props.answers.length)*100).toFixed(1);
   }
 
   render () {
     return(
       <div>
         <p>Attempts: {this.props.answers.length}</p>
-        <p>MAE: {this.getMeanError()}</p>
+        <p>MAE: {this.getMeanError()} %</p>
       </div>
     )
   }

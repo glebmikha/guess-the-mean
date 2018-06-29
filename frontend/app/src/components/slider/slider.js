@@ -4,6 +4,18 @@ import { newArray, userAnswer } from '../../actions';
 
 class Slider extends Component {
 
+  componentDidMount() {
+    this.props.newArray();
+  }
+
+  _handleKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      this.props.userAnswer(this.state.value,this.props.curArray);
+      this.props.newArray();
+      this.setState({value: ''})
+    }
+  }
+
   constructor(props) {
     super(props);
     this.state = { value: 0 }
@@ -13,14 +25,11 @@ class Slider extends Component {
     this.setState({ value });
   }
 
-  onButtonClick(value) {
+  onButtonClick() {
 
-    if (this.props.curArray.length > 0) {
-      this.props.userAnswer(value,this.props.curArray);
-      this.props.newArray();
-    } else {
-      this.props.newArray();
-    }
+    this.props.userAnswer(this.state.value,this.props.curArray);
+    this.props.newArray();
+    this.setState({value: ''})
   }
 
   // TODO 1. add keyboard control with shift to move faster
@@ -41,9 +50,10 @@ class Slider extends Component {
           value={this.state.value}
           type="text"
           className="text-bar"
+          onKeyPress={this._handleKeyPress}
         />
         <input
-          onClick={() => this.onButtonClick(this.state.value)}
+          onClick={() => this.onButtonClick()}
           className="searchButton"
           type="submit"
           value={this.props.curArray.length > 0 ? 'Submit' : 'Start'}

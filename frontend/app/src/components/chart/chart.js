@@ -10,7 +10,7 @@ class LineChartData extends Component {
     const answers = this.props.answers.slice().reverse();
 
     const data = _.map(answers, (arr, index) => {
-      return {x: index, y: Number(arr.error)}
+      return {x: index, y: Math.abs(Number(arr.error))}
     })
     return [data];
   }
@@ -21,8 +21,7 @@ class LineChartData extends Component {
     axes
     grid
     verticalGrid
-    dataPoints
-    yDomainRange={[-1.5, 1.5 ]}
+    yDomainRange={[0, 1]}
     axisLabels={{x: 'Attempt', y: 'Error'}}
     width={450}
     height={250}

@@ -6,3 +6,7 @@ border:1px solid black;
 .results-group table td {
 border:1px solid black;
 }
+
+.results-group table th {
+border:1px solid black;
+}

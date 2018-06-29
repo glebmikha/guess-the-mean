@@ -13,7 +13,7 @@ class History extends Component {
           <td>{'['+arr.array.toString()+']'}</td>
           <td>{ans.true_mean}</td>
           <td>{ans.answer}</td>
-          <td>{ans.error}</td>
+          <td>{(ans.error*100).toFixed(1)}</td>
         </tr>
       )
     })
@@ -30,7 +30,14 @@ class History extends Component {
             <col className='error'/>
           </colgroup>
           <tbody>
-            {this.renderHistory()}
+          <tr>
+            <th>array</th>
+            <th>true mean</th>
+            <th>your mean</th>
+            <th>error, %</th>
+          </tr>
+
+          {this.renderHistory()}
           </tbody>
         </table>
 
