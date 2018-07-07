@@ -20,7 +20,7 @@ export function userAnswer(value, curArray) {
 
   const average = arr => arr.reduce( ( p, c ) => p + c, 0 ) / arr.length;
   const true_mean = average(curArray).toFixed(2);
-  const error = ((true_mean - answer) / true_mean).toFixed(3);
+  const error = ((answer - true_mean) / true_mean).toFixed(3);
 
   const payload = {
     answer: answer,

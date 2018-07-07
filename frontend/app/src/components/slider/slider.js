@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { newArray, userAnswer } from '../../actions';
+import './slider.css';
 
 class Slider extends Component {
 
@@ -32,8 +33,6 @@ class Slider extends Component {
     this.setState({value: ''})
   }
 
-  // TODO 1. add keyboard control with shift to move faster
-
   render() {
     return (
       <div className='sliderContainer'>
@@ -54,7 +53,7 @@ class Slider extends Component {
         />
         <input
           onClick={() => this.onButtonClick()}
-          className="searchButton"
+          className="search-button"
           type="submit"
           value={this.props.curArray.length > 0 ? 'Submit' : 'Start'}
         />
