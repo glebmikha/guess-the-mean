@@ -37,14 +37,14 @@ class Slider extends Component {
   render() {
     return (
       <div className='sliderContainer'>
-        <input
+        {/* <input
           onChange={event => this.onInputChange(event.target.value)}
           value={this.state.value}
           type="range"
           className="slider"
           min="0"
           max="100"
-        />
+        /> */}
         <input
           onChange={event => this.onInputChange(event.target.value)}
           value={this.state.value}
